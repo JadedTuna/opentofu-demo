@@ -23,11 +23,11 @@ resource "aws_instance" "app_server" {
   }
 
   ##
-  monitoring = true
+  #monitoring = true
   metadata_options {
     http_endpoint = "disabled"
   }
-  ebs_optimized = true
+  #ebs_optimized = true
   root_block_device {
     encrypted = true
   }
