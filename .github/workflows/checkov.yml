@@ -1,0 +1,35 @@
+name: Checkov IaC Scan
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '**/*.tf'
+      - '**/*.yml'
+      - '**/*.yaml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - '**/*.tf'
+      - '**/*.yml'
+      - '**/*.yaml'
+
+jobs:
+  checkov_scan:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.12'
+
+    - name: Install Checkov
+      run: pip install -r requirements.txt
+
+    - name: Run Checkov scan
+      run: checkov -d .
