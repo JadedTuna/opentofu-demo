@@ -16,6 +16,8 @@ on:
       - '**/*.yml'
       - '**/*.yaml'
 
+permissions: read-all
+
 jobs:
   checkov_scan:
     runs-on: ubuntu-latest
