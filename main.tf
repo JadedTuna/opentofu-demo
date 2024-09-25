@@ -23,7 +23,7 @@ resource "aws_instance" "app_server" {
   }
 
   ##
-  monitoring = true
+  #monitoring = true
   metadata_options {
     http_endpoint = "disabled"
   }
